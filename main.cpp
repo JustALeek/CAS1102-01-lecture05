@@ -6,12 +6,10 @@ using namespace std;
 #include "third_party/stb/stb_image.h"
 
 void decode_steganography(int image_data[], int data_size, std::string key) {
-
     int currentIndex = 1000;
-
     char currentChar = image_data[currentIndex];
     int count = 0;
-    while(true){
+    while(currentIndex < data_size){
         currentIndex += key[count%key.size()];
         currentChar = image_data[currentIndex];
         if(currentChar == 0){
